@@ -1,0 +1,41 @@
+version: "3.6"
+
+services:
+  client:
+    build:
+      context: ./client 
+      dockerfile: Dockerfile
+    container_name: client
+    ports:
+      - "3000:3000"
+    networks:
+      - yolo_network
+    image: VanessaMayama/client:v1.1.0
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    networks:
+      - yolo_network
+    image: VanessaMayama/backend:v1.1.0
+
+  yolo.db:
+    image: mongo:latest
+    container_name: yolo_db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tracymayama
+      MONGO_INITDB_ROOT_PASSWORD: mayama123
+      MONGO_INITDB_DATABASE: local 
+    ports:
+      - "27017:27017"
+
+    networks:
+      - yolo_network
+
+networks:
+  yolo_network:
+    driver: bridge
