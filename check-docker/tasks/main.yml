@@ -1,2 +1,4 @@
----
-# tasks file for check-docker
+- name: Check if Docker is installed
+  command: docker --version
+  register: docker_version
+  ignore_errors: true

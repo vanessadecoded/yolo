@@ -1,2 +1,6 @@
----
-# tasks file for repo-clone
+- name: Clone repository from GitHub
+  git:
+         repo: 'git@github.com:vanessadecoded/yolo.git'
+         dest: /tmp/yolo
+         accept_hostkey: yes 
+         key_file: /.ssh

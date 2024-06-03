@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: false
+  connection: local
+  become: true
+  become_method: sudo
+  roles:
+
+    - repo-clone
+    - check-docker
+    - install-docker
+    - copy-files
+    - docker-compose 
+               

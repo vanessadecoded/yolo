@@ -1,2 +1,18 @@
----
-# tasks file for copy-files
+- name: Ensure destination directory exists
+  file:
+         path: /home/tracy/yolo/
+         state: directory
+         owner: tracy
+         group: tracy
+         mode: '0755'
+
+- name: Copy project files to VM
+  shell: rsync -av /home/tracy/yolo/ /home/tracy/yolo/  
+
+- name: Set ownership and permissions of project files
+  file:
+         path: /home/tracy/yolo/
+         recurse: yes
+         owner: tracy
+         group: tracy
+         mode: '0755'
