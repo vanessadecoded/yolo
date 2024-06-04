@@ -30,4 +30,4 @@ docker-compose-up: Starts the Docker containers using docker-compose.
 The commented-out sections below the roles (# denotes a comment) indicate additional tasks that can be performed, such as starting Docker services, building Docker images, and running Docker containers. These tasks are not included in the playbook but can be uncommented and added if needed. They would typically be part of the respective roles (docker-install, docker-compose-up, etc.) or placed in separate roles for better organization and reusability.
 
 The uncommentend section can still be used to run the playbook although in my case i created roles that would be used instead
- After the configuration above you can run Vagrant up and then vagrant pr
+ After the configuration above you can run Vagrant up and then vagrant provision
